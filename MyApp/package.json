@@ -15,13 +15,19 @@
   "devDependencies": {
     "cordova-android": "^13.0.0",
     "cordova-browser": "^7.0.0",
-    "cordova-ios": "^7.1.1"
+    "cordova-ios": "^7.1.1",
+    "cordova-plugin-badge": "^0.8.9",
+    "cordova-plugin-device": "^3.0.0",
+    "cordova-plugin-local-notification": "^0.9.0-beta.2"
   },
   "cordova": {
     "platforms": [
       "android",
       "browser",
       "ios"
-    ]
+    ],
+    "plugins": {
+      "cordova-plugin-local-notification": {}
+    }
   }
 }

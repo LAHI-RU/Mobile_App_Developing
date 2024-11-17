@@ -1,0 +1,23 @@
+/* Custom Styles for To-Do List App */
+
+/* Add some spacing between tasks */
+.card {
+  margin-bottom: 15px;
+}
+
+/* Customize button hover effects */
+.btn:hover {
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group > * {
+    margin-bottom: 10px;
+  }
+}
