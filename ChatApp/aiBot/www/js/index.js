@@ -1,29 +1,25 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+document.getElementById("sendButton").addEventListener("click", function () {
+  const userInput = document.getElementById("userInput").value;
+  if (userInput.trim() !== "") {
+    addMessage("You", userInput);
+    getBotResponse(userInput);
+    document.getElementById("userInput").value = "";
+  }
+});
 
-// Wait for the deviceready event before using any of Cordova's device APIs.
-// See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
+function addMessage(sender, message) {
+  const chatbox = document.getElementById("chatbox");
+  const messageDiv = document.createElement("div");
+  messageDiv.textContent = `${sender}: ${message}`;
+  chatbox.appendChild(messageDiv);
+  chatbox.scrollTop = chatbox.scrollHeight;
+}
 
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+function getBotResponse(userInput) {
+  // Simple bot logic (replace with advanced AI later)
+  let botMessage = "Sorry, I didn't understand that.";
+  if (userInput.toLowerCase().includes("hello")) {
+    botMessage = "Hi there! How can I assist you today?";
+  }
+  addMessage("Bot", botMessage);
 }
